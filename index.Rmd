@@ -49,5 +49,10 @@ Also here's a set of pictures I took in another beautiful city, Venice:
 
 ![](images/Italy.png)
 
+# Other stuff there is on this page
+
+Definitely there is [plotly](Plotly.html) stuff!
+
+
 
 

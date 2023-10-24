@@ -1,22 +1,22 @@
 ---
-title: "Plotly"
+title: "dashboard"
 output: 
-  html_document:
-    toc: true
-    toc_float: true
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
 ---
 
-# Plotly
-
-We're making interactive plots
-
-```{r}
+```{r setup, include=FALSE}
+library(flexdashboard)
 library(tidyverse)
 library(plotly)
 library(p8105.datasets)
 ```
 
-Focus on NYC Airbnb data.
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
 
 ```{r}
 data("nyc_airbnb")
@@ -34,8 +34,18 @@ nyc_airbnb=
     price %in% 100:500
   )
 ```
+```{r}
+nyc_airbnb|>
+  mutate(neighbourhood=fct_reorder(neighbourhood,price))|>
+  plot_ly(y=~price,color=~neighbourhood,type="box",colors="viridis")
+```
 
-Let's make a scatterplot!
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+
 
 ```{r}
 nyc_airbnb|>
@@ -47,16 +57,7 @@ nyc_airbnb|>
     type="scatter",mode="markers",alpha=0.5)
 ```
 
-
-Let's make a box plot!
-
-```{r}
-nyc_airbnb|>
-  mutate(neighbourhood=fct_reorder(neighbourhood,price))|>
-  plot_ly(y=~price,color=~neighbourhood,type="box")
-```
-
-Let's make a bar plot!
+### Chart C
 
 ```{r}
 nyc_airbnb|>
@@ -65,16 +66,4 @@ nyc_airbnb|>
   plot_ly(x=~neighbourhood,y=~n,color=~neighbourhood, 
           type="bar",colors="viridis")
 ```
-
-# ggplotly- it exists but never use it!
-
-```{r}
-#ggp_scatter=
-#  nyc_airbnb|>
-#  ggplot(aes(x=lat,y=long,color=price))+
-#  geom_point(alpha=.5)
-#ggplotly(ggp_scatter)
-```
-
-
 
