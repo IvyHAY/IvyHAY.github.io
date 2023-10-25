@@ -5,7 +5,12 @@ output:
     toc: true
     toc_float: true
 ---
-
 # About
 
-This wesite is pretty great
+This website is a personal website about Aiying Huang.
+
+It includes:
+
+* A brief introductory landing page
+* A page giving Aiying's academic and professional experience 
+* Links in the site navigation for Aiying's GitHub account, email, and other professional networks.

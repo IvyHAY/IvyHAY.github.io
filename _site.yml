@@ -1,12 +1,12 @@
 name: "Yay internet!"
 output_dir: "."
 navbar:
-  title: "Home"
+  title: "Aiying Huang"
   right:
     - text: "About"
       href: about.html
-    - text: "Projects"
-      href: projects.html
+    - text: "Biography"
+      href: biography.html
     - text: "Plotly"
       href: Plotly.html  
     - text: "dashboard"
@@ -17,4 +17,4 @@ navbar:
       href: http://github.com/IvyHAY
 output:
   html_document:
-    theme: cosmo
+    theme: spacelab
