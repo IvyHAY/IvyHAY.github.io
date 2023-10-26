@@ -3,8 +3,6 @@ output_dir: "."
 navbar:
   title: "Aiying Huang"
   right:
-    - text: "About"
-      href: About.html
     - text: "Biography"
       href: biography.html
     - text: "Dashboard"
