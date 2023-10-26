@@ -8,7 +8,7 @@ output:
 
 # About
 
-This website is a personal website about Aiying Huang and her work.
+This website is a personal website about Aiying Huang.
 
 It includes:
 
