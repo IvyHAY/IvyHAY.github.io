@@ -8,11 +8,11 @@ output:
 
 # About
 
-This website is a personal website about Aiying Huang.
+This is a website built for Adrian to celebrate his 23rd birthday. Happy birthday my dear!
 
 It includes:
 
 * A brief introductory landing page
-* A page giving Aiying's academic and professional experience 
-* Links in the site navigation for Aiying's GitHub account, email, and other professional networks.
-* A flexdashboard representing some information about the Instacart datasets. It contains three plots. The boxplot represents that healthier snacks and staples tend to be purchased earlier in the day. The line plot represents people are most likely to order things during 10 a.m. to 4 p.m. The barplot represents healthy food like fresh vegetables and fresh fruits are the most often ordered things.
+* A page giving Adrian's cute moments 
+* Links in the site navigation for maker's GitHub account, email.
+* ...
