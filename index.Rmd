@@ -1,5 +1,5 @@
 ---
-title: "Aiying Huang"
+title: "Adrian Shen"
 output: 
   html_document:
     toc: true
@@ -10,7 +10,7 @@ output:
 
 # About
 
-I'm Aiying Huang, a dedicated biostatistics enthusiast currently pursuing a Master of Science degree at Columbia University. With a strong foundation in statistics and a passion for data analysis, I've honed my skills in R, Python, and more, enabling me to contribute meaningfully to real-world projects. My professional journey includes valuable internships at Medtronic and Deloitte, where I optimized data processes and conducted data-driven analyses. I've also delved into cutting-edge research, such as genetic population structure detection and high-risk prediction for COVID-19 patients. Beyond academics, I explore the influence of music and noise on attention and engage in ongoing research in multi-sample single-cell transcriptomics data. Feel free to explore my profile to learn more about my academic endeavors and research interests. I'm open to collaborations and always eager to learn and contribute to the field of biostatistics. Let's connect and explore new opportunities together.
+This is a website built for Adrian to celebrate his 23rd birthday. Happy birthday my dear!
 
 # Contact
 
