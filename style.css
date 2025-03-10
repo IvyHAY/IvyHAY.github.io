@@ -1,0 +1,158 @@
+/* 🌟 让 Navbar 充满整个页面 */
+.navbar {
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+/* 🌟 让 Navbar 里的 Logo / 标题 更美观 */
+.navbar-brand {
+  font-family: "Great Vibes", cursive;
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff6b81 !important; /* 让标题颜色更温暖 */
+}
+
+/* 🌟 美化 Navbar 里的菜单 */
+.navbar-nav .nav-item {
+  margin-right: 20px;
+}
+
+.navbar-nav .nav-link {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333 !important;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ff4757 !important; /* 鼠标悬停时变色 */
+}
+
+/* 🌟 让 Navbar 居中对齐 */
+.container-fluid {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* 🌟 让正文不会被 Navbar 遮挡 */
+body {
+  padding-top: 100px; /* 让内容从 Navbar 下面开始 */
+  background: linear-gradient(to right, #ff9a9e, #fad0c4); /* 渐变背景 */
+  font-family: "Poppins", sans-serif;
+  color: #4A4A4A;
+  text-align: center;
+  margin: 0;
+  padding: 30px;
+}
+
+/* 🌟 让主标题更美观 */
+h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: 50px;
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  margin-top: 20px;
+}
+
+/* 🌟 让主要内容居中显示 */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 🌟 让图片居中并美观 */
+.img-container img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* 🌟 美化按钮 */
+.button {
+  background: #ff6b81;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background: #ff4757;
+}
+
+/* 🌟 隐藏的祝福文字 */
+.message {
+  display: none;
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* 🌟 打字机动画 */
+.typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #ff6b81; /* 让光标更明显 */
+  font-size: 24px; /* 设置字体大小 */
+  width: 0; /* 让文本从0开始增长 */
+  animation: typing 4s steps(40) forwards, blink 0.7s step-end infinite;
+}
+
+/* 🌟 文字打字动画 */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* 🌟 光标闪烁动画 */
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+
+/* 🌟 播放音乐按钮 */
+.music-button {
+  background: #ff6b81;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.music-button:hover {
+  background: #ff4757;
+}
+
+/* 🌟 隐藏音频控件 */
+#audioPlayer {
+  display: none;
+}

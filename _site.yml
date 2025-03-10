@@ -2,17 +2,22 @@ name: "Yay internet!"
 output_dir: "."
 navbar:
   title: "AdrianOutlook"
+  type: default
+  left:
+    - text: "Home"
+      href: index.html
   right:
     - text: "About"
       href: about.html
-    - text: "Biography"
-      href: biography.html
+    - text: "Moments"
+      href: moments.html
     - text: "Dashboard"
-      href: dashboard.html  
-    - icon: fa-envelope fa-lg
-      href: mailto:<ah4167@cumc.columbia.edu>
-    - icon: fa-github fa-lg
-      href: http://github.com/IvyHAY
+      href: dashboard.html
+
+
 output:
   html_document:
-    theme: spacelab
+    css: "style.css"
+    includes:
+      after_body: "music.html"
+    

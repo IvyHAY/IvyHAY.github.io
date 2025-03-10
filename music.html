@@ -1,0 +1,14 @@
+<audio id="audioPlayer" loop>
+  <source src="audio/林俊杰-不为谁而作的歌.ogg" type="audio/ogg">
+</audio>
+
+<script>
+  function playMusic() {
+    var music = document.getElementById("audioPlayer");
+    if (music.paused) {
+      music.play();
+    } else {
+      music.pause();
+    }
+  }
+</script>

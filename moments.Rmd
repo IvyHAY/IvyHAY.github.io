@@ -1,0 +1,92 @@
+---
+title: "Some Shining Momoents of You or Maybe Us！"
+output: 
+  html_document:
+    toc: false
+    toc_float: false
+---
+
+# When you were a little boy
+
+<img src="images/young1.JPG" style="width:75%">
+
+<img src="images/young2.JPG" style="width:75%">
+
+# The first time we took pictures together
+
+<img src="images/1.JPG" style="width:75%">
+
+# The first Christmas since we were together
+
+<img src="images/3.JPG" style="width:75%">
+
+
+# The first birthday for you since we were together
+
+<img src="images/4.jpg" style="width:75%">
+
+# Hangzhou
+
+<img src="images/5.jpg" style="width:75%">
+
+# Xiamen
+
+<img src="images/6.jpg" style="width:75%">
+
+# Covid-19 Quarantine
+
+<img src="images/7.jpg" style="width:75%">
+
+
+# Long-hair
+
+<img src="images/8.jpg" style="width:75%">
+
+# 2022-2023 
+
+<img src="images/9.jpg" style="width:75%">
+
+# The actual second birthday we celebrated together
+
+<img src="images/10.JPG" style="width:75%">
+
+
+# Trip to Changshu
+
+<img src="images/11.JPG" style="width:75%">
+
+# Graduation!
+
+<img src="images/12.JPG" style="width:75%">
+
+
+# Chuanxi
+
+<img src="images/13.JPG" style="width:75%">
+
+
+# First CP photo shoot
+
+<img src="images/14.JPG" style="width:75%">
+
+
+# Chongqing
+
+<img src="images/15.JPG" style="width:75%">
+
+
+# 2023-2024
+
+<img src="images/16.JPG" style="width:75%">
+
+# Chongming
+
+<img src="images/17.JPG" style="width:75%">
+
+# The first time shooting the Milky Way
+
+<img src="images/18.jpg" style="width:75%">
+
+# Hiking
+
+<img src="images/19.JPG" style="width:75%">

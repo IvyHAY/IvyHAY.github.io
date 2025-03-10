@@ -2,11 +2,10 @@
 title: "About this website"
 output: 
   html_document:
-    toc: true
-    toc_float: true
+    toc: FALSE
+    toc_float: FALSE
 ---
 
-# About
 
 This is a website built for Adrian to celebrate his 23rd birthday. Happy birthday my dear!
 
@@ -16,3 +15,7 @@ It includes:
 * A page giving Adrian's cute moments 
 * Links in the site navigation for maker's GitHub account, email.
 * ...
+
+
+
+<button class="music-button" onclick="playMusic()">🎶 播放音乐</button>
