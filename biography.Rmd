@@ -8,13 +8,11 @@ output:
 
 # When you are a little boy
 
-**Columbia University | New York, NY**
 
-![](images/yong1.JPG)
+<img src="images/young1.JPG" style="width:75%">
 
-**East China Normal University | Shanghai, China**
+<img src="images/young2.JPG" style="width:75%">
 
-![](imayoung2.JPG.JPG)
 
 
 # Technical Proficiencies
