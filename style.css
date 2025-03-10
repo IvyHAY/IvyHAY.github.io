@@ -156,3 +156,19 @@ h1 {
 #audioPlayer {
   display: none;
 }
+
+
+.heart-container {
+    font-size: 50px;
+    text-align: center;
+    margin: 20px 0;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.2); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}

@@ -1,0 +1,51 @@
+---
+title: "倒计时 | 期待见面 ❤️"
+output:
+  html_document:
+    toc: false
+    toc_float: false
+---
+
+```{r, echo=FALSE, results='asis'}
+cat('<link rel="stylesheet" href="style.css">')
+```
+
+<div class="container">
+  <h1 style="color:#ff6b81; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);">⏳ 距离我们下次见面的日子还有：</h1>
+  <p id="countdown"></p>
+
+  <button class="music-button" onclick="playMusic()">🎶 播放音乐</button>
+
+  <audio id="bgMusic" loop>
+    <source src="audio/your-music-file.ogg" type="audio/ogg">
+    <source src="audio/your-music-file.mp3" type="audio/mpeg">
+    你的浏览器不支持播放音乐。
+  </audio>
+</div>
+
+<script>
+  function countdown() {
+      let futureDate = new Date("2025-06-01");  
+      let now = new Date();
+      let diff = futureDate - now;
+
+      let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").textContent = 
+          `${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`;
+  }
+
+  setInterval(countdown, 1000);
+
+  function playMusic() {
+      var music = document.getElementById("bgMusic");
+      if (music.paused) {
+          music.play();
+      } else {
+          music.pause();
+      }
+  }
+</script>

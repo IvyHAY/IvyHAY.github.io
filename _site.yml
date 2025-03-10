@@ -11,8 +11,8 @@ navbar:
       href: about.html
     - text: "Moments"
       href: moments.html
-    - text: "Dashboard"
-      href: dashboard.html
+    - text: "Countdown"
+      href: countdown.html
 
 
 output:
