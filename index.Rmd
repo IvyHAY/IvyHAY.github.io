@@ -110,7 +110,7 @@ cat('
 
   <!-- 🎵 背景音乐（避免浏览器拦截） -->
   <audio id="bgMusic" loop>
-    <source src="audio/music.ogg" type="audio/mpeg">
+    <source src="audio/林俊杰-不为谁而作的歌.ogg" type="audio/mpeg">
   </audio>
   <button class="button" onclick="playMusic()">🎶 播放音乐</button>
 
