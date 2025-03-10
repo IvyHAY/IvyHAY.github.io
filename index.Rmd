@@ -1,25 +1,128 @@
 ---
 title: "Adrian Shen"
-output: 
+output:
   html_document:
-    toc: true
-    toc_float: true
+    toc: false
+    toc_float: false
 ---
 
-![](images/IMG_1266.JPG)
+```{r, echo=FALSE, results='asis'}
+cat('
 
-# About
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Adrian! 🎂</title>
 
-This is a website built for Adrian to celebrate his 23rd birthday. Happy birthday my dear!
+  <!-- 🎨 Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-# Some words I want to say first...
+  <!-- 🌟 CSS styles -->
+  <style>
+    body {
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      font-family: "Poppins", sans-serif;
+      color: #4A4A4A;
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      font-family: "Great Vibes", cursive;
+      font-size: 50px;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    .img-container img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .button {
+      background: #ff6b81;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .button:hover {
+      background: #ff4757;
+    }
+    .message {
+      display: none;
+      margin-top: 20px;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+    /* 🌟 打字机动画 */
+    .typing {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid;
+      display: inline-block;
+      animation: typing 4s steps(40) forwards, blink 0.7s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+  </style>
+</head>
+<body>
 
+  <h1>🎂 Happy Birthday, Adrian! 🎉</h1>
 
-二十三岁的新宝你好呀！其实每次新宝生日的时候我都会觉得很神奇，因为每年只有在三月二十三日到五月十二日的这段时间里，我们俩写在纸上的年龄是一样的。感觉像是星轨定期的交错，参宿四与天狼星每七十六年才能相逢一次，而我们的年龄刻度却好像每年都能在时空的某个褶皱里温柔重叠。
+    写在最前面：
+    
+    二十三岁的新宝你好呀！其实每次新宝生日的时候我都会觉得很神奇，因为每年只有在三月二十三日到五月十二日的这段时间里，我们俩写在纸上的年龄是一样的。感觉像是星轨定期的交错，参宿四与天狼星每七十六年才能相逢一次，而我们的年龄刻度却好像每年都能在时空的某个褶皱里温柔重叠。
 
-这是我们一起走过的第五个生日了，是不是觉得时间过得好快？记得新宝第一个生日的时候我还不知道送些什么，也不好意思问，刚爱上剪视频的我给你剪了一个三分二十三秒的视频，还一不小心超过零点才发给你。你看了之后说，“突然有点想掉眼泪，但很快又变成了开心”，从那以后我的每一个视频都想承载着这样的使命，如果不能让现实生活中的我们永远保持开心，那至少在点开那些细碎片段的瞬间，能笑中带泪吧。虽然后来我越来越知道什么样的内容能得到更多的浏览，什么样的剪辑能带来更好的观看体验，但还是会在特别迷茫，特别无助的时候点开那几个虽然技术笨拙，但是情感真挚的视频，看着看着，突然释怀，你看，当初青涩的我们，也一步一步走到了现在。
+    这是我们一起走过的第五个生日了，是不是觉得时间过得好快？记得新宝第一个生日的时候我还不知道送些什么，也不好意思问，刚爱上剪视频的我给你剪了一个三分二十三秒的视频，还一不小心超过零点才发给你。你看了之后说，“突然有点想掉眼泪，但很快又变成了开心”，从那以后我的每一个视频都想承载着这样的使命，如果不能让现实生活中的我们永远保持开心，那至少在点开那些细碎片段的瞬间，能笑中带泪吧。虽然后来我越来越知道什么样的内容能得到更多的浏览，什么样的剪辑能带来更好的观看体验，但还是会在特别迷茫，特别无助的时候点开那几个虽然技术笨拙，但是情感真挚的视频，看着看着，突然释怀，你看，当初青涩的我们，也一步一步走到了现在。
 
-我本来想写，过去这一年好像才开始真正地走进你，了解你。但是后来仔细想想发现，好像也不是，以前那些也是真正的你。只是我从来没有这么认真地和一个人一起成长，一起看着岁月在对方身上刻出不一样的痕迹，十九岁的我们，本来就和二十三岁的我们不一样。我们都在努力地长大，努力地去拥抱每分每秒都在发生的变化，所以我也应该像拥抱这个因为充满未知而无比可爱的世界一样，拥抱每一个未知的你。我爱你睡着时微微睁开的双眼，也爱你上班前日日不落的早安，我爱你意气风发时扬起的嘴角，也爱你失落无措时滑落的泪滴，我爱你夸奖我时的爱意与温柔，也爱你生我气时的冷漠与回避，我爱你一定要登上山顶的坚定与勇敢，也爱你对原生家庭的不满与恐惧……就像你曾经无数次不解疑惑但最终接纳莫名其妙伤心流泪的我一样，我也想这样对你，在我面前你不用一直意气风发，不用一直温柔体贴，不用一直坚定勇敢…我爱你，锐利的、柔软的、璀璨的、晦暗的，每一个你。
+    我本来想写，过去这一年好像才开始真正地走进你，了解你。但是后来仔细想想发现，好像也不是，以前那些也是真正的你。只是我从来没有这么认真地和一个人一起成长，一起看着岁月在对方身上刻出不一样的痕迹，十九岁的我们，本来就和二十三岁的我们不一样。我们都在努力地长大，努力地去拥抱每分每秒都在发生的变化，所以我也应该像拥抱这个因为充满未知而无比可爱的世界一样，拥抱每一个未知的你。我爱你睡着时微微睁开的双眼，也爱你上班前日日不落的早安，我爱你意气风发时扬起的嘴角，也爱你失落无措时滑落的泪滴，我爱你夸奖我时的爱意与温柔，也爱你生我气时的冷漠与回避，我爱你一定要登上山顶的坚定与勇敢，也爱你对原生家庭的不满与恐惧……就像你曾经无数次不解疑惑但最终接纳莫名其妙伤心流泪的我一样，我也想这样对你，在我面前你不用一直意气风发，不用一直温柔体贴，不用一直坚定勇敢…我爱你，锐利的、柔软的、璀璨的、晦暗的，每一个你。
+      
+    不管这是一个什么样子的二十三岁，它都会是最好的二十三岁，因为人生只有一次，而你的存在本身就是宇宙写下的温柔诗句。我已经迫不及待去拥抱崭新的你啦！
+   
+  </div>
 
-不管这是一个什么样子的二十三岁，它都会是最好的二十三岁，因为人生只有一次，而你的存在本身就是宇宙写下的温柔诗句。我已经迫不及待去拥抱崭新的你啦！
+  <!-- 🎭 JavaScript for interactive button -->
+  <script>
+    function showMessage() {
+      var messageDiv = document.getElementById("birthdayMessage");
+      messageDiv.style.display = "block";
+      messageDiv.scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
 
+  <!-- 🎵 背景音乐（避免浏览器拦截） -->
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+  <button class="button" onclick="playMusic()">🎶 播放音乐</button>
+
+  <script>
+    function playMusic() {
+      var music = document.getElementById("bgMusic");
+      music.play();
+    }
+  </script>
+
+</body>
+</html>
+')
+
+```
