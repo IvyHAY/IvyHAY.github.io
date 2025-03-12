@@ -277,13 +277,22 @@ $(document).ready(function () {
 <p><link rel="stylesheet" href="style.css"></p>
 <!-- **游戏容器** -->
 <div id="gameContainer">
-<p><img id="goal" src="images/goal.png"></p>
-<p><img id="player" src="images/player.png"></p>
-<p><img id="ball" src="images/ball.png"></p>
+<img id="goal" src="images/goal.png">
+<img id="player" src="images/player.png">
+<img id="ball" src="images/ball.png">
 <p id="gameMessage">
 🏆 试着射门吧！
 </p>
 </div>
+<!-- 🎵 播放音乐按钮 -->
+<button id="music-button" class="music-button">
+🎶 播放音乐
+</button>
+<!-- 🎶 音频播放器（默认隐藏） -->
+<audio id="bgMusic" loop>
+<source src="audio/黄霄雲-玫瑰星云.ogg" type="audio/ogg">
+<source src="audio/黄霄雲-玫瑰星云.mp3" type="audio/mpeg">
+<p>你的浏览器不支持播放音乐。 </audio></p>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const gameContainer = document.getElementById("gameContainer");
@@ -291,18 +300,23 @@ document.addEventListener("DOMContentLoaded", function() {
     const ball = document.getElementById("ball");
     const goal = document.getElementById("goal");
     const gameMessage = document.getElementById("gameMessage");
+    const music = document.getElementById("bgMusic");
+    const musicButton = document.getElementById("music-button");
 
-    function updateSizes() {
+  let playerX, playerY, ballX, ballY;
+  let ballMoving = false;
+  let ballStopping = false;
+  let reachedGoalHeight = false;
+  let ballInterval = null;
+
+  function updateSizes() {
         const containerWidth = gameContainer.offsetWidth;
         const containerHeight = gameContainer.offsetHeight;
-
-        player.style.width = `${containerWidth * 0.12}px`;
-        ball.style.width = `${containerWidth * 0.05}px`;
-        goal.style.width = `${containerWidth * 0.35}px`;
-
-        resetPositions(containerWidth, containerHeight);
+      player.style.width = `${containerWidth * 0.12}px`;
+      ball.style.width = `${containerWidth * 0.05}px`;
+     goal.style.width = `${containerWidth * 0.35}px`;
+     resetPositions(containerWidth, containerHeight);
     }
-
     function resetPositions(containerWidth, containerHeight) {
         playerX = containerWidth * 0.4;
         playerY = containerHeight * 0.8;
@@ -311,30 +325,19 @@ document.addEventListener("DOMContentLoaded", function() {
         ballMoving = false;
         ballStopping = false;
         reachedGoalHeight = false;
-
         goal.style.left = "50%";
         goal.style.top = "10%";
         goal.style.transform = "translateX(-50%)";
-
         player.style.left = `${playerX}px`;
         player.style.top = `${playerY}px`;
         ball.style.left = `${ballX}px`;
         ball.style.top = `${ballY}px`;
-
         gameMessage.innerText = "🏆 试着射门吧！";
     }
-
-    let playerX, playerY, ballX, ballY;
-    let ballMoving = false;
-    let ballStopping = false;
-    let reachedGoalHeight = false; // 记录是否达到射门高度
-
     updateSizes();
-
     document.addEventListener("keydown", function(event) {
         const containerWidth = gameContainer.offsetWidth;
         const containerHeight = gameContainer.offsetHeight;
-
         if (event.key === "ArrowLeft" && playerX > 0) {
             playerX -= containerWidth * 0.03;
             if (!ballMoving) ballX -= containerWidth * 0.03;
@@ -343,16 +346,14 @@ document.addEventListener("DOMContentLoaded", function() {
             playerX += containerWidth * 0.03;
             if (!ballMoving) ballX += containerWidth * 0.03;
         }
-
-        // 按第一次空格：球开始上升
+        // **按空格键射门**
         if (event.key === " " && !ballMoving) {
             ballMoving = true;
-            ballStopping = false; // 允许停止
-            let interval = setInterval(() => {
+            ballStopping = false; 
+            ballInterval = setInterval(() => {
                 if (!ballStopping) {
                     ballY -= 10; // 球上升速度
                     ball.style.top = `${ballY}px`;
-
                     // 记录是否达到球门高度
                     const goalRect = goal.getBoundingClientRect();
                     if (ball.getBoundingClientRect().top <= goalRect.top + goalRect.height * 0.8) {
@@ -360,54 +361,67 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 }
             }, 50);
-
-            // 监听第二次空格键，停止球
+            // **第二次按空格键停止球**
             document.addEventListener("keydown", function stopBall(event) {
                 if (event.key === " " && ballMoving && !ballStopping) {
                     ballStopping = true;
-                    clearInterval(interval); // 停止球的上升
+                    clearInterval(ballInterval); // 停止球的上升
                     checkGoal(); // 计算是否进球
-                    document.removeEventListener("keydown", stopBall); // 只允许按一次
+                    document.removeEventListener("keydown", stopBall);
                 }
             });
         }
-
         player.style.left = `${playerX}px`;
         player.style.top = `${playerY}px`;
         ball.style.left = `${ballX}px`;
         ball.style.top = `${ballY}px`;
     });
-
     // **进球判定**
     function checkGoal() {
         const goalRect = goal.getBoundingClientRect();
         const ballRect = ball.getBoundingClientRect();
-
         const ballCenterX = ballRect.left + ballRect.width / 2;
         const ballCenterY = ballRect.top + ballRect.height / 2;
         const goalLeft = goalRect.left;
         const goalRight = goalRect.right;
         const goalTop = goalRect.top + goalRect.height / 2;
-        const goalMaxHeight = goalRect.top; // 球门最顶端
-
+        const goalMaxHeight = goalRect.top;
         if (!reachedGoalHeight) {
             gameMessage.innerText = "⚠️ 球还没射出去呢！";
         } else if (ballCenterY < goalMaxHeight) {
             gameMessage.innerText = "❌ 太高了，飞出去了！";
-        } else  { // 球到达球门高度
+        } else {
             if (ballCenterX >= goalLeft && ballCenterX <= goalRight) {
                 gameMessage.innerText = "🥳 进球啦！";
             } else {
                 gameMessage.innerText = "❌ 射偏了！";
             }
         }
-
         setTimeout(() => {
             updateSizes();
         }, 1000);
     }
 
     window.addEventListener("resize", updateSizes);
+    // 🎵 **音乐控制逻辑**
+    function playMusic() {
+        if (music.paused) {
+            music.play();
+        } else {
+            music.pause();
+        }
+    }
+    // 只允许鼠标点击播放/暂停音乐，避免空格键影响
+    musicButton.addEventListener("click", function(event) {
+        event.stopPropagation();
+        playMusic();
+    });
+    // **阻止空格键影响音乐**
+    document.addEventListener("keydown", function(event) {
+        if (event.key === " " || event.keyCode === 32) {
+            event.preventDefault();
+        }
+    });
 });
 </script>
 <style>
@@ -419,20 +433,20 @@ body {
     color: #4A4A4A;
 }
 
-/* 游戏容器，使得所有元素相对该容器布局 */
+/* 游戏容器 */
 #gameContainer {
     position: relative;
-    width: 60vw; /* 让游戏区域占屏幕60% */
-    height: 80vh; /* 让游戏区域占屏幕80% */
+    width: 60vw;
+    height: 80vh;
     margin: 0 auto;
     overflow: hidden;
     border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-/* 让球门固定在容器顶部 */
+/* 球门 */
 #goal {
     position: absolute;
-    width: 30%; /* 自适应宽度 */
+    width: 30%;
     left: 50%;
     top: 10%;
     transform: translateX(-50%);
@@ -441,7 +455,6 @@ body {
 /* 让球员和球可以移动 */
 #player, #ball {
     position: absolute;
-    width: 10%; /* 让球员和球大小自适应 */
     transition: left 0.1s ease-in-out, top 0.1s ease-in-out;
 }
 
@@ -452,6 +465,16 @@ body {
     color: #ff4757;
     margin-top: 10px;
 }
+
+/* 音乐按钮 */
+.music-button {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    background: #ff4757;
+    color: white;
+    cursor: pointer;
+}
 </style>
 
 <audio id="audioPlayer" loop>
@@ -460,7 +483,16 @@ body {
     你的浏览器不支持播放音乐。
 </audio> 
 <script>   
-function playMusic() {     var music = document.getElementById("audioPlayer");     if (music.paused) {       music.play();     } else {       music.pause();     }   } </script> 
+function playMusic() {     
+  var music = document.getElementById("audioPlayer");     
+  if (music.paused) {       
+    music.play();     } 
+  else {       
+    music.pause();     }   
+    }
+</script> 
+
+
 
 
 
