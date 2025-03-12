@@ -39,9 +39,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const containerWidth = gameContainer.offsetWidth;
         const containerHeight = gameContainer.offsetHeight;
 
-        player.style.width = `${containerWidth * 0.1}px`;
-        ball.style.width = `${containerWidth * 0.08}px`;
-        goal.style.width = `${containerWidth * 0.3}px`;
+        player.style.width = `${containerWidth * 0.12}px`;
+        ball.style.width = `${containerWidth * 0.05}px`;
+        goal.style.width = `${containerWidth * 0.35}px`;
 
         resetPositions(containerWidth, containerHeight);
     }
@@ -49,9 +49,11 @@ document.addEventListener("DOMContentLoaded", function() {
     function resetPositions(containerWidth, containerHeight) {
         playerX = containerWidth * 0.4;
         playerY = containerHeight * 0.8;
-        ballX = playerX + 30;
-        ballY = playerY + 30;
+        ballX = playerX + 0.2 * playerX;
+        ballY = playerY + 0.1 * playerY;
         ballMoving = false;
+        ballStopping = false;
+        reachedGoalHeight = false;
 
         goal.style.left = "50%";
         goal.style.top = "10%";
@@ -61,9 +63,14 @@ document.addEventListener("DOMContentLoaded", function() {
         player.style.top = `${playerY}px`;
         ball.style.left = `${ballX}px`;
         ball.style.top = `${ballY}px`;
+
+        gameMessage.innerText = "🏆 试着射门吧！";
     }
 
-    let playerX, playerY, ballX, ballY, ballMoving = false;
+    let playerX, playerY, ballX, ballY;
+    let ballMoving = false;
+    let ballStopping = false;
+    let reachedGoalHeight = false; // 记录是否达到射门高度
 
     updateSizes();
 
@@ -79,36 +86,33 @@ document.addEventListener("DOMContentLoaded", function() {
             playerX += containerWidth * 0.03;
             if (!ballMoving) ballX += containerWidth * 0.03;
         }
-        if (event.key === " " && !ballMoving) { // 按空格射门
+
+        // 按第一次空格：球开始上升
+        if (event.key === " " && !ballMoving) {
             ballMoving = true;
+            ballStopping = false; // 允许停止
             let interval = setInterval(() => {
-                ballY -= 15;
-                ball.style.top = `${ballY}px`;
+                if (!ballStopping) {
+                    ballY -= 10; // 球上升速度
+                    ball.style.top = `${ballY}px`;
 
-                // **使用 getBoundingClientRect() 获取球门精确坐标**
-                const goalRect = goal.getBoundingClientRect();
-                const ballRect = ball.getBoundingClientRect();
-
-                // 获取球的中心点
-                const ballCenterX = ballRect.left + ballRect.width / 2;
-                const ballCenterY = ballRect.top ;
-                const goalLeft = goalRect.left;
-                const goalRight = goalRect.right;
-                const goalTop = goalRect.top + goalRect.height /2;
-
-                if (ballCenterY <= goalTop) { // 球到达球门高度
-                    clearInterval(interval);
-                    if (ballCenterX >= goalLeft && ballCenterX <= goalRight) {
-                        gameMessage.innerText = "🥳 进球啦！";
-                    } else {
-                        gameMessage.innerText = "❌ 射偏了！";
+                    // 记录是否达到球门高度
+                    const goalRect = goal.getBoundingClientRect();
+                    if (ball.getBoundingClientRect().top <= goalRect.top + goalRect.height * 0.8) {
+                        reachedGoalHeight = true;
                     }
-
-                    setTimeout(() => {
-                        resetPositions(containerWidth, containerHeight);
-                    }, 1000);
                 }
             }, 50);
+
+            // 监听第二次空格键，停止球
+            document.addEventListener("keydown", function stopBall(event) {
+                if (event.key === " " && ballMoving && !ballStopping) {
+                    ballStopping = true;
+                    clearInterval(interval); // 停止球的上升
+                    checkGoal(); // 计算是否进球
+                    document.removeEventListener("keydown", stopBall); // 只允许按一次
+                }
+            });
         }
 
         player.style.left = `${playerX}px`;
@@ -117,9 +121,40 @@ document.addEventListener("DOMContentLoaded", function() {
         ball.style.top = `${ballY}px`;
     });
 
+    // **进球判定**
+    function checkGoal() {
+        const goalRect = goal.getBoundingClientRect();
+        const ballRect = ball.getBoundingClientRect();
+
+        const ballCenterX = ballRect.left + ballRect.width / 2;
+        const ballCenterY = ballRect.top + ballRect.height / 2;
+        const goalLeft = goalRect.left;
+        const goalRight = goalRect.right;
+        const goalTop = goalRect.top + goalRect.height / 2;
+        const goalMaxHeight = goalRect.top; // 球门最顶端
+
+        if (!reachedGoalHeight) {
+            gameMessage.innerText = "⚠️ 球还没射出去呢！";
+        } else if (ballCenterY < goalMaxHeight) {
+            gameMessage.innerText = "❌ 太高了，飞出去了！";
+        } else  { // 球到达球门高度
+            if (ballCenterX >= goalLeft && ballCenterX <= goalRight) {
+                gameMessage.innerText = "🥳 进球啦！";
+            } else {
+                gameMessage.innerText = "❌ 射偏了！";
+            }
+        }
+
+        setTimeout(() => {
+            updateSizes();
+        }, 1000);
+    }
+
     window.addEventListener("resize", updateSizes);
 });
 </script>
+
+
 
 <style>
 /* 让整个网页作为游戏背景 */
