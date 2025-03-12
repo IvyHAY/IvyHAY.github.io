@@ -173,4 +173,50 @@ h1 {
     100% { transform: scale(1); }
 }
 
+/* 美化按钮样式 */
+.custom-button {
+    background: linear-gradient(to right, #ff758c, #ff7eb3); /* 渐变背景 */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+}
+
+.custom-button:hover {
+    background: linear-gradient(to right, #ff6b81, #ff3e60); /* 悬停时颜色变化 */
+    transform: scale(1.05);
+}
+/* 美化按钮 */
+.photo-button {
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+}
+
+.photo-button:hover {
+    background: linear-gradient(to right, #ff6b81, #ff3e60);
+    transform: scale(1.05);
+}
+
+/* 让图片出现时渐变 */
+#photo {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+
 

@@ -7,7 +7,7 @@ navbar:
     - text: "Home"
       href: index.html
   right:
-    - text: "About"
+    - text: "Letter"
       href: about.html
     - text: "Moments"
       href: moments.html
@@ -19,5 +19,5 @@ output:
   html_document:
     css: "style.css"
     includes:
-      after_body: "music.html"
+      after_body: "music.html" 
     
