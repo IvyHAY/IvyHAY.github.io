@@ -13,7 +13,18 @@ cat('<link rel="stylesheet" href="style.css">')
 
 
 <div class="container"> <h1 style="color:#ff6b81; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);">
-✨ About this  Website✨</h1> <p> 这个网站是专门为 沈灿新小朋友的23岁生日制作的。<br> 🎂 生日快乐，我的宝贝！💖 </p> <!-- ❤️ 跳动的心动画 --> <div class="heart-container"> 💖 </div> <h2>📌 网站内容</h2> <ul> <li>🌟 Letters - 颖宝给新宝的生日信</li> <li>📸 Moments - 记录 Adrian 可爱的瞬间</li> <li>⏳ Countdown- 期待我们再次见面</li> <li>🎶 Music - 漫游玫瑰星云 </li> </ul> <!-- 🎵 播放音乐按钮 -->
+✨ About this  Website✨</h1> <p> 这个网站是专门为 沈灿新小朋友的23岁生日制作的。<br> 🎂 生日快乐，我的宝贝！💖 </p> 
+<!-- ❤️ 跳动的心动画 -->
+<div class="heart-container"> 💖 </div>
+<h2>📌 网站内容</h2> 
+<ul> 
+<li>🌟 Letter - 颖宝给新宝的生日信</li> 
+<li>📸 Moments - 记录 Adrian 可爱的瞬间</li> 
+<li>🎮 Game- 试试你的新键盘吧</li> 
+<li>⏳ Countdown- 期待我们再次见面</li> 
+<li>🎶 Music - 漫游玫瑰星云 </li> 
+</ul> 
+<!-- 🎵 播放音乐按钮 -->
 <button class="music-button" onclick="playMusic()">🎶 播放音乐</button>
 
 <!-- 🎶 音频播放器（默认隐藏） --> <audio id="bgMusic" loop> <source src="audio/your-music-file.ogg" type="audio/ogg"> <source src="audio/your-music-file.mp3" type="audio/mpeg"> 你的浏览器不支持播放音乐。 </audio> </div> <script> function playMusic() { var music = document.getElementById("bgMusic"); if (music.paused) { music.play(); } else { music.pause(); } } </script>

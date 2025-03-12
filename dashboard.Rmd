@@ -1,8 +1,0 @@
----
-title: "dashboard"
-output: 
-  flexdashboard::flex_dashboard:
-    orientation: columns
-    vertical_layout: scroll
----
-

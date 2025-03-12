@@ -11,6 +11,8 @@ navbar:
       href: about.html
     - text: "Moments"
       href: moments.html
+    - text: "Game"
+      href: game.html
     - text: "Countdown"
       href: countdown.html
 

@@ -219,4 +219,34 @@ h1 {
 }
 
 
+#gameContainer {
+    position: relative;
+    width: 60vw;  /* 容器宽度占屏幕 60% */
+    height: 80vh; /* 容器高度占屏幕 80% */
+    margin: 0 auto;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.3); /* 增加边框以便调试 */
+}
+
+#goal {
+    position: absolute;
+    width: 20%; /* 让球门的大小随着容器变化 */
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+}
+
+#player, #ball {
+    position: absolute;
+    width: 10%; /* 让球员和球大小相对于容器 */
+    transition: left 0.1s ease-in-out, top 0.1s ease-in-out;
+}
+
+#gameMessage {
+    font-size: 2vw; /* 让提示信息的字体大小随窗口变化 */
+    font-weight: bold;
+    color: #ff4757;
+    margin-top: 20px;
+}
+
 
