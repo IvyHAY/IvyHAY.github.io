@@ -271,7 +271,6 @@ $(document).ready(function () {
 </div>
 
 
-<p><link rel="stylesheet" href="style.css"></p>
 <div class="container">
 <h1 style="color:#ff6b81; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);">
 ⏳ 距离我们下次见面的日子还有：
@@ -312,9 +311,11 @@ $(document).ready(function () {
   }
 </script>
 
-<audio id="audioPlayer" loop>   
-<source src="audio/黄霄雲-玫瑰星云.ogg" type="audio/ogg"> 
-</audio>  
+<audio id="audioPlayer" loop>
+    <source src="audio/黄霄雲-玫瑰星云.mp3" type="audio/mpeg">
+    <source src="audio/黄霄雲-玫瑰星云.ogg" type="audio/ogg">
+    你的浏览器不支持播放音乐。
+</audio> 
 <script>   
 function playMusic() {     var music = document.getElementById("audioPlayer");     if (music.paused) {       music.play();     } else {       music.pause();     }   } </script> 
 

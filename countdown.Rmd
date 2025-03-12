@@ -6,9 +6,6 @@ output:
     toc_float: false
 ---
 
-```{r, echo=FALSE, results='asis'}
-cat('<link rel="stylesheet" href="style.css">')
-```
 
 <div class="container">
   <h1 style="color:#ff6b81; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);">⏳ 距离我们下次见面的日子还有：</h1>
