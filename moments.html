@@ -358,11 +358,20 @@ class="section level1">
 <button class="music-button" onclick="playMusic()">
 🎶 播放音乐
 </button>
+<!-- 🎶 音频播放器（默认隐藏） -->
+<audio id="bgMusic" loop>
+<source src="audio/your-music-file.ogg" type="audio/ogg">
+<source src="audio/your-music-file.mp3" type="audio/mpeg">
+你的浏览器不支持播放音乐。 </audio>
+</div>
+<script> function playMusic() { var music = document.getElementById("bgMusic"); if (music.paused) { music.play(); } else { music.pause(); } } </script>
 </div>
 
-<audio id="audioPlayer" loop>   
-<source src="audio/黄霄雲-玫瑰星云.ogg" type="audio/ogg"> 
-</audio>  
+<audio id="audioPlayer" loop>
+    <source src="audio/黄霄雲-玫瑰星云.mp3" type="audio/mpeg">
+    <source src="audio/黄霄雲-玫瑰星云.ogg" type="audio/ogg">
+    你的浏览器不支持播放音乐。
+</audio> 
 <script>   
 function playMusic() {     var music = document.getElementById("audioPlayer");     if (music.paused) {       music.play();     } else {       music.pause();     }   } </script> 
 

@@ -96,3 +96,5 @@ output:
 
 
 <button class="music-button" onclick="playMusic()">🎶 播放音乐</button>
+
+<!-- 🎶 音频播放器（默认隐藏） --> <audio id="bgMusic" loop> <source src="audio/your-music-file.ogg" type="audio/ogg"> <source src="audio/your-music-file.mp3" type="audio/mpeg"> 你的浏览器不支持播放音乐。 </audio> </div> <script> function playMusic() { var music = document.getElementById("bgMusic"); if (music.paused) { music.play(); } else { music.pause(); } } </script>
