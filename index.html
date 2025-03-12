@@ -312,9 +312,11 @@ $(document).ready(function () {
 </div>
 <script> function playMusic() { var music = document.getElementById("bgMusic"); if (music.paused) { music.play(); } else { music.pause(); } } </script>
 
-<audio id="audioPlayer" loop>   
-<source src="audio/黄霄雲-玫瑰星云.ogg" type="audio/ogg"> 
-</audio>  
+<audio id="audioPlayer" loop>
+    <source src="audio/黄霄雲-玫瑰星云.mp3" type="audio/mpeg">
+    <source src="audio/黄霄雲-玫瑰星云.ogg" type="audio/ogg">
+    你的浏览器不支持播放音乐。
+</audio> 
 <script>   
 function playMusic() {     var music = document.getElementById("audioPlayer");     if (music.paused) {       music.play();     } else {       music.pause();     }   } </script> 
 
