@@ -22,7 +22,7 @@ output:
 
 <script>
   function countdown() {
-      let futureDate = new Date("2025-06-01");  
+      let futureDate = new Date("2025-05-24");  
       let now = new Date();
       let diff = futureDate - now;
 

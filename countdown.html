@@ -289,7 +289,7 @@ $(document).ready(function () {
 </div>
 <script>
   function countdown() {
-      let futureDate = new Date("2025-06-01");  
+      let futureDate = new Date("2025-05-24");  
       let now = new Date();
       let diff = futureDate - now;
 
@@ -320,7 +320,16 @@ $(document).ready(function () {
     你的浏览器不支持播放音乐。
 </audio> 
 <script>   
-function playMusic() {     var music = document.getElementById("audioPlayer");     if (music.paused) {       music.play();     } else {       music.pause();     }   } </script> 
+function playMusic() {     
+  var music = document.getElementById("audioPlayer");     
+  if (music.paused) {       
+    music.play();     } 
+  else {       
+    music.pause();     }   
+    }
+</script> 
+
+
 
 
 
