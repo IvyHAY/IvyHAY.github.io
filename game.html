@@ -350,17 +350,21 @@ document.addEventListener("DOMContentLoaded", function() {
         if (event.key === " " && !ballMoving) {
             ballMoving = true;
             ballStopping = false; 
-            ballInterval = setInterval(() => {
-                if (!ballStopping) {
-                    ballY -= 10; // 球上升速度
-                    ball.style.top = `${ballY}px`;
-                    // 记录是否达到球门高度
-                    const goalRect = goal.getBoundingClientRect();
-                    if (ball.getBoundingClientRect().top <= goalRect.top + goalRect.height * 0.8) {
-                        reachedGoalHeight = true;
-                    }
-                }
-            }, 50);
+            ballInterval = setInterval(() => {                 
+            if (!ballStopping) {                     
+            ballY -= 30; // 控制球的上升速度                     
+            ball.style.top = `${ballY}px`;                     
+            // 获取球门边界
+            const goalRect = goal.getBoundingClientRect();   
+            const goalMinHeight = goalRect.top + ballRect.height + goalRect.height * 0.4;
+             const goalMaxHeight = goalRect.bottom -  goalRect.height*0.02;
+            // 只有当球在合理高度范围内，才设置 reachedGoalHeight
+            if (ball.getBoundingClientRect().top >= goalMinHeight && 
+                ball.getBoundingClientRect().top <= goalMaxHeight) {                         
+                reachedGoalHeight = true;                     
+            }                 
+        }             
+    }, 50);   
             // **第二次按空格键停止球**
             document.addEventListener("keydown", function stopBall(event) {
                 if (event.key === " " && ballMoving && !ballStopping) {
@@ -377,31 +381,31 @@ document.addEventListener("DOMContentLoaded", function() {
         ball.style.top = `${ballY}px`;
     });
     // **进球判定**
-    function checkGoal() {
-        const goalRect = goal.getBoundingClientRect();
-        const ballRect = ball.getBoundingClientRect();
-        const ballCenterX = ballRect.left + ballRect.width / 2;
-        const ballCenterY = ballRect.top + ballRect.height / 2;
-        const goalLeft = goalRect.left;
-        const goalRight = goalRect.right;
-        const goalTop = goalRect.top + goalRect.height / 2;
-        const goalMaxHeight = goalRect.top;
-        if (!reachedGoalHeight) {
-            gameMessage.innerText = "⚠️ 球还没射出去呢！";
-        } else if (ballCenterY < goalMaxHeight) {
-            gameMessage.innerText = "❌ 太高了，飞出去了！";
-        } else {
-            if (ballCenterX >= goalLeft && ballCenterX <= goalRight) {
-                gameMessage.innerText = "🥳 进球啦！";
-            } else {
-                gameMessage.innerText = "❌ 射偏了！";
-            }
-        }
-        setTimeout(() => {
-            updateSizes();
-        }, 1000);
+  function checkGoal() {
+    const goalRect = goal.getBoundingClientRect();
+    const ballRect = ball.getBoundingClientRect();
+    const ballCenterX = ballRect.left + ballRect.width / 2;
+    const ballCenterY = ballRect.top + ballRect.height / 2;
+    const goalLeft = goalRect.left;
+    const goalRight = goalRect.right;
+    const goalTop = goalRect.top;
+    const goalBottom = goalRect.top + goalRect.height;
+    // 设置合理的进球高度范围（调整参数以优化进球判定）
+      const goalMinHeight = goalRect.top + ballRect.height + goalRect.height * 0.4;
+      const goalMaxHeight = goalRect.bottom -  goalRect.height*0.02;
+    if (ballCenterY < goalMinHeight) {
+        gameMessage.innerText = "❌ 太高了，飞出去了！";
+    } else if (ballCenterY > goalMaxHeight) {
+        gameMessage.innerText = "❌ 太低了，没进球！";
+    } else if (ballCenterX >= goalLeft && ballCenterX <= goalRight) {
+        gameMessage.innerText = "🥳 进球啦！";
+    } else {
+        gameMessage.innerText = "❌ 射偏了！";
     }
-
+    setTimeout(() => {
+        updateSizes();
+    }, 1000);
+}
     window.addEventListener("resize", updateSizes);
     // 🎵 **音乐控制逻辑**
     function playMusic() {
