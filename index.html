@@ -275,6 +275,16 @@ $(document).ready(function () {
 
 
 <p><link rel="stylesheet" href="style.css"></p>
+<!-- 🚀 开屏动画 -->
+<div id="loading-screen">
+<div id="loading-content">
+星空降临中…
+</div>
+</div>
+<!-- 🌌 星空背景 -->
+<div id="starry-background">
+
+</div>
 <div class="container">
 <h1 style="color:#ff6b81; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);">
 ✨ About this Website✨
@@ -318,6 +328,17 @@ $(document).ready(function () {
 你的浏览器不支持播放音乐。 </audio>
 </div>
 <script> function playMusic() { var music = document.getElementById("bgMusic"); if (music.paused) { music.play(); } else { music.pause(); } } </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // 🚀 让开屏动画 3 秒后淡出
+    setTimeout(() => {
+        document.getElementById("loading-screen").style.opacity = "0";
+        setTimeout(() => {
+            document.getElementById("loading-screen").style.display = "none";
+        }, 1000);
+    }, 3000);
+});
+</script>
 
 <audio id="audioPlayer" loop>
     <source src="audio/黄霄雲-玫瑰星云.mp3" type="audio/mpeg">

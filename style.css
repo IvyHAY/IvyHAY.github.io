@@ -249,4 +249,58 @@ h1 {
     margin-top: 20px;
 }
 
+/* 🌌 开屏动画背景 */
 
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("images/stars.png") no-repeat center center;
+    background-size: cover; /* ✅ 让图片保持比例填充整个屏幕 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+    transition: opacity 3s ease-in-out;
+}
+
+#twinkling {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("images/twinkling.png") repeat;
+    background-size: cover; /* ✅ 保持比例 */
+    opacity: 0.6;
+    animation: twinkle 3s infinite alternate ease-in-out;
+    z-index: 9999;
+}
+
+
+/* 🌟 定义闪烁动画 */
+@keyframes twinkle {
+    0% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.02); }
+    100% { opacity: 0.4; transform: scale(1); }
+}
+
+
+
+/* 🚀 进入动画 */
+#loading-content {
+    text-align: center;
+    color: white;
+    font-family: "Great Vibes", cursive;
+    font-size: 40px;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+/* 渐变消失 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
